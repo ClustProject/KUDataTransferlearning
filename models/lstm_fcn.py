@@ -27,6 +27,15 @@ class LSTM_FCNs(nn.Module):
     def __init__(self, *, n_time = 720, num_classes, input_size, num_lstm_out=64, num_layers,
                 conv1_nf=128, conv2_nf=128, conv3_nf=16, lstm_drop_p=0.8, fc_drop_p=0.3):
         super(LSTM_FCNs, self).__init__()
+        '''
+        init_model = LSTM_FCNs(
+                    input_size  = self.parameter['input_size'],
+                    num_classes = self.parameter['source_class'],
+                    num_layers  = self.parameter['num_layers'],
+                    lstm_drop_p = self.parameter['lstm_drop_out'],
+                    fc_drop_p   = self.parameter['fc_drop_out']
+                )
+        '''
         self.n_time = n_time
         self.num_classes = num_classes
         # self.max_seq_len = max_seq_len
