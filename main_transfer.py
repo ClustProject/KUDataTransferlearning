@@ -23,7 +23,6 @@ warnings.filterwarnings('ignore')
 class Transferlearning():
     def __init__(self, config, mode):
         """
-        
 
         Parameters
         ----------
