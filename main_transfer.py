@@ -51,7 +51,7 @@ class Transferlearning():
 
         """
         
-        if self.mode == 'transfer' :
+        if self.mode == 'transfer' : # transfer model 학습 
             init_model = LSTM_FCNs(
                     input_size=self.parameter['input_size'],
                     num_classes=self.parameter['source_class'],
