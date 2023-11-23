@@ -82,3 +82,21 @@ model_config = {
         }
     }
 }
+
+
+    },
+    'FC' : {  # Case 5. fully-connected layers (w/ data representation)
+        'model': 'FC', 
+        "best_model_path": './ckpt/fc.pt',  # 학습 완료 모델 저장 경로
+        'parameter': {
+            'input_size': 64,  # 데이터의 변수 개수(representation 차원), int
+            'num_classes': 6,  # 분류할 class 개수, int
+            'drop_out': 0.1, # dropout 확률, float(default: 0.1, 범위: 0 이상 1 이하)
+            'bias': True, # bias 사용 여부, bool(default: True)
+            'num_epochs': 150, # 학습 epoch 횟수, int(default: 150, 범위: 1 이상)
+            'batch_size': 64,  # batch 크기, int(default: 64, 범위: 1 이상, 컴퓨터 사양에 적합하게 설정)
+            'lr': 0.0001,  # learning rate, float(default: 0.0001, 범위: 0.1 이하)
+            'device': 'cuda'  # 학습 환경, ["cuda", "cpu"] 중 선택
+        }
+    }
+}
