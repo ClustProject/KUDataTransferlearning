@@ -28,5 +28,6 @@
 
 - **freeze** : fc layer 를 제외한 layer 의 학습 여부 (default: False)
 
+
  
 
