@@ -8,6 +8,7 @@ from sklearn.preprocessing import MinMaxScaler
 
 def load_data(folderAddress, model_name):
     if model_name in ["LSTM", "GRU", "CNN_1D", "LSTM_FCNs"]:
+
         # raw time series data
         train_x = pickle.load(open(folderAddress + 'x_train.pkl', 'rb'))
         train_y = pickle.load(open(folderAddress + 'y_train.pkl', 'rb'))
@@ -22,6 +23,7 @@ def load_data(folderAddress, model_name):
         print("sequenceLenth (train_x.shape[2]):", train_x.shape[2]) # seq_length
     
     if model_name in["FC"]:
+
         # representation data
         train_x = pd.read_csv(folderAddress + 'ts2vec_repr_train.csv')
         train_y = pickle.load(open(folderAddress + 'y_train.pkl', 'rb'))
@@ -32,6 +34,7 @@ def load_data(folderAddress, model_name):
 
 
 def get_train_val_data(train_data, valid_data, scaler_path):
+
     # normalization
     scaler = MinMaxScaler()
 
@@ -69,8 +72,10 @@ def get_test_data(test_data, scaler_path):
     if len(test_data.shape) == 1:  # shape=(time_steps, )
         scaled_test_data = scaler.transform(np.expand_dims(test_data, axis=-1))
         scaled_test_data = scaled_test_data.flatten()
+
     elif len(test_data.shape) < 3:  # shape=(num_of_instance, input_dims)
         scaled_test_data = scaler.transform(test_data)
+        
     else:  # shape=(num_of_instance, input_dims, time_steps)
         origin_shape = test_data.shape
         scaled_test_data = scaler.transform(np.transpose(test_data, (0, 2, 1)).reshape(-1, origin_shape[1]))
